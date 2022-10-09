@@ -13,7 +13,7 @@ public class employeeDetalis {
         private String emp_name;
         private int emp_id;
         private int emp_age;
-        private String emp_gender;
+        private char emp_gender;
         private String emp_start_date;
         private String emp_level;
         private String emp_team_info;
@@ -47,11 +47,11 @@ public class employeeDetalis {
         this.emp_age = emp_age;
     }
 
-    public String getEmp_gender() {
+    public char getEmp_gender() {
         return emp_gender;
     }
 
-    public void setEmp_gender(String emp_gender) {
+    public void setEmp_gender(char emp_gender) {
         this.emp_gender = emp_gender;
     }
 

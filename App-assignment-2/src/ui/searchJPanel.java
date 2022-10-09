@@ -398,51 +398,93 @@ public class searchJPanel extends javax.swing.JPanel {
     private void emp_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_idActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_id";
+        ArrayList<Integer> searchItemsList = new ArrayList<Integer>();
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_id());
+        }
     }//GEN-LAST:event_emp_idActionPerformed
 
     private void emp_ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_ageActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_age";
+        ArrayList<Integer> searchItemsList = new ArrayList<Integer>();
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_age());
+        }
     }//GEN-LAST:event_emp_ageActionPerformed
 
     private void emp_genderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_genderActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_gender";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(String.valueOf(d.getEmp_gender()));
+        }
     }//GEN-LAST:event_emp_genderActionPerformed
 
     private void emp_start_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_start_dateActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_start_date";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_start_date());
+        }
     }//GEN-LAST:event_emp_start_dateActionPerformed
 
     private void emp_levelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_levelActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_level";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_level());
+        }
     }//GEN-LAST:event_emp_levelActionPerformed
 
     private void emp_team_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_team_infoActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_team_info";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_team_info());
+        }
     }//GEN-LAST:event_emp_team_infoActionPerformed
 
     private void emp_position_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_position_titleActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_position_title";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_position_title());
+        }
     }//GEN-LAST:event_emp_position_titleActionPerformed
 
     private void emp_contact_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_contact_infoActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_contact_info";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_contact_info());
+        }
     }//GEN-LAST:event_emp_contact_infoActionPerformed
 
     private void emp_cell_phn_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_cell_phn_noActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_cell_phn_no";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_cell_phn_no());
+        }
     }//GEN-LAST:event_emp_cell_phn_noActionPerformed
 
     private void emp_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_emailActionPerformed
         // TODO add your handling code here:
         this.searchOption = "emp_email";
+        for (employeeDetalis d : data.getData())
+        {
+        searchItemsList.add(d.getEmp_email());
+        }
     }//GEN-LAST:event_emp_emailActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -461,9 +503,9 @@ public class searchJPanel extends javax.swing.JPanel {
         }
         else
         {
+            int i=0;
             for (employeeDetalis d : data.getData())
             {
-                int i=0;
                 if(i==searchItemsList.indexOf(searchText.getText()))
                 {
                     jLabel1.setVisible(true);
@@ -494,7 +536,7 @@ public class searchJPanel extends javax.swing.JPanel {
                     emp_name1.setText(d.getEmp_name());
                     emp_id1.setText(String.valueOf(d.getEmp_id()));
                     emp_age1.setText(String.valueOf(d.getEmp_age()));
-                    emp_gender1.setText(d.getEmp_gender());
+                    emp_gender1.setText(String.valueOf(d.getEmp_gender()));
                     emp_start_date1.setText(d.getEmp_start_date());
                     emp_level1.setText(d.getEmp_level());
                     emp_team_info1.setText(d.getEmp_team_info());
@@ -504,6 +546,7 @@ public class searchJPanel extends javax.swing.JPanel {
                     emp_email1.setText(d.getEmp_email());
                     emp_photo_label.setIcon(new ImageIcon(new ImageIcon(d.getEmp_photo_label()).getImage().getScaledInstance(180, 180, Image.SCALE_DEFAULT)));
                 }
+                i++;
                 
             }
         }

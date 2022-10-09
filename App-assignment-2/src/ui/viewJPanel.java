@@ -353,7 +353,7 @@ public class viewJPanel extends javax.swing.JPanel {
         emp_name.setText(selectedEmployee.getEmp_name());
         emp_id.setText(String.valueOf(selectedEmployee.getEmp_id()));
         emp_age.setText(String.valueOf(selectedEmployee.getEmp_age()));
-        emp_gender.setText(selectedEmployee.getEmp_gender());
+        emp_gender.setText(String.valueOf(selectedEmployee.getEmp_gender()));
         emp_start_date.setText(selectedEmployee.getEmp_start_date());
         emp_level.setText(selectedEmployee.getEmp_level());
         emp_team_info.setText(selectedEmployee.getEmp_team_info());
@@ -385,7 +385,7 @@ public class viewJPanel extends javax.swing.JPanel {
         ed.setEmp_name(items_array[0]);
         ed.setEmp_id(Integer.parseInt(items_array[1]));
         ed.setEmp_age(Integer.parseInt(items_array[2]));
-        ed.setEmp_gender(items_array[3]);
+        ed.setEmp_gender(items_array[3].charAt(0));
         ed.setEmp_start_date(items_array[4]);
         ed.setEmp_level(items_array[5]);
         ed.setEmp_team_info(items_array[6]);

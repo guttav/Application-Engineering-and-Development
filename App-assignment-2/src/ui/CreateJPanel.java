@@ -73,9 +73,9 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         age.setText("Age");
 
-        jLabel1.setText("Gender");
+        jLabel1.setText("Gender (M/F)");
 
-        jLabel2.setText("Start-date");
+        jLabel2.setText("Start-date (dd/mm/yy)");
 
         jLabel3.setText("Level");
 
@@ -125,7 +125,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -208,34 +208,46 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
         // TODO add your handling code here:
         
-        this.ed = data.addNewEmployee();
-        
-        this.ed.setEmp_name(emp_name.getText());
-        this.ed.setEmp_id(Integer.parseInt(emp_id.getText()));
-        this.ed.setEmp_age(Integer.parseInt(emp_age.getText()));
-        this.ed.setEmp_gender(emp_gender.getText());
-        this.ed.setEmp_start_date(emp_start_date.getText());
-        this.ed.setEmp_level(emp_level.getText());
-        this.ed.setEmp_team_info(emp_team_info.getText());
-        this.ed.setEmp_position_title(emp_position_title.getText());
-        this.ed.setEmp_contact_info(emp_contact_info.getText());
-        this.ed.setEmp_cell_phn_no((emp_cell_phn_no.getText()));
-        this.ed.setEmp_email(emp_email.getText());
-        this.ed.setEmp_photo_label(emp_photo_text.getText());
-        
-        JOptionPane.showMessageDialog(this,"New Employee details are added.");
-       
-        emp_name.setText("");
-        emp_id.setText("");
-        emp_age.setText("");
-        emp_gender.setText("");
-        emp_start_date.setText("");
-        emp_level.setText("");
-        emp_team_info.setText("");
-        emp_position_title.setText("");
-        emp_contact_info.setText("");
-        emp_cell_phn_no.setText("");
-        emp_email.setText("");        
+        int current_value = 0;
+        for (employeeDetalis d : data.getData())
+        {
+            if(d.getEmp_id() == Integer.parseInt(emp_id.getText()))
+            {
+                JOptionPane.showMessageDialog(this,"Error:::Employee with Emp_id"+ emp_id.getText() +"already exists.");
+                current_value = 1;
+            }
+        }
+        if(current_value == 0)
+        {
+            this.ed = data.addNewEmployee();
+
+            this.ed.setEmp_name(emp_name.getText());
+            this.ed.setEmp_id(Integer.parseInt(emp_id.getText()));
+            this.ed.setEmp_age(Integer.parseInt(emp_age.getText()));
+            this.ed.setEmp_gender(emp_gender.getText().charAt(0));
+            this.ed.setEmp_start_date(emp_start_date.getText());
+            this.ed.setEmp_level(emp_level.getText());
+            this.ed.setEmp_team_info(emp_team_info.getText());
+            this.ed.setEmp_position_title(emp_position_title.getText());
+            this.ed.setEmp_contact_info(emp_contact_info.getText());
+            this.ed.setEmp_cell_phn_no((emp_cell_phn_no.getText()));
+            this.ed.setEmp_email(emp_email.getText());
+            this.ed.setEmp_photo_label(emp_photo_text.getText());
+
+            JOptionPane.showMessageDialog(this,"New Employee details are added.");
+
+            emp_name.setText("");
+            emp_id.setText("");
+            emp_age.setText("");
+            emp_gender.setText("");
+            emp_start_date.setText("");
+            emp_level.setText("");
+            emp_team_info.setText("");
+            emp_position_title.setText("");
+            emp_contact_info.setText("");
+            emp_cell_phn_no.setText("");
+            emp_email.setText("");
+        }
     }//GEN-LAST:event_savebtnActionPerformed
 
     private void btnPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhotoActionPerformed
